@@ -10,9 +10,10 @@ function ProductsList() {
     fetchProducts();
   }, []);
 
+  const ApiKey = import.meta.env.VITE_API_KEY;
   async function fetchProducts() {
     try {
-      const response = await fetch("https://dummyjson.com/products");
+      const response = await fetch(`${ApiKey}`);
       const data = await response.json();
       setProduct(data.products);
     } catch (err) {
